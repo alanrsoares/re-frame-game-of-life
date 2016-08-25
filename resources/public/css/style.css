@@ -1,0 +1,31 @@
+.grid-controls {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.grid {
+  margin: auto;
+  border: solid 2px #111;
+}
+
+.tile {
+  background-color: #2e3338;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #111;
+  -webkit-transition: background-color 0.15s ease-out;
+  -moz-transition: background-color 0.15s ease-out;
+  -o-transition: background-color 0.15s ease-out;
+  transition: background-color 0.15s ease-out;
+}
+
+.tile--alive {
+  background-color: #fff;
+}
+
+.tile:hover {
+  background-color: #484D52;
+}
