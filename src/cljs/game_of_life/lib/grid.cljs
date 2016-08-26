@@ -7,8 +7,6 @@
       #(mapv fill-with xs)
       xs)))
 
-
-
 (defn new-key [key size]
   (cond 
     (= key -1) (dec size)
