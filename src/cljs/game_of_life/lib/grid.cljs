@@ -22,7 +22,9 @@
          (mapcat
            (fn [y']
              (map
-               (fn [x'] [(+ y y') (+ x x')]) 
+               (fn [x']
+                 [(+ y y')
+                  (+ x x')])
                offset)))
          (remove #(= % [y x])))))
 
