@@ -4,4 +4,5 @@ rm -f index.html
 rm -rf ./css
 rm -rf ./js
 
+./scripts/build
 cp -r resources/public/* .
