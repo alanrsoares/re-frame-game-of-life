@@ -1,6 +1,8 @@
 # game-of-life
 
-A [re-frame](https://github.com/Day8/re-frame) application designed to ... well, that part is up to you.
+A [re-frame](https://github.com/Day8/re-frame) implementation of Conway's Game of Life.
+
+[view demo](https://alanrsoares.github.io/re-frame-game-of-life/)
 
 ## Development Mode
 
