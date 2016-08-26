@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm -f index.html
+rm -rf ./css
+rm -rf ./js
+
