@@ -1,17 +1,13 @@
-(ns game-of-life.db
-  (:require [game-of-life.lib.grid :refer [make-grid]]))
+(ns game-of-life.lib.grid
+  (:require [game-of-life.lib.game :refer [will-live?]]))
+
+(defn make-grid [size fill-with]
+  (let [xs (range size)]
+    (mapv
+      #(mapv fill-with xs)
+      xs)))
 
 
-(def board-size 20)
-
-(defn random-fill [] 
-  (< 0.8 (rand)))
-
-(def blank-board
-  (make-grid board-size (fn [] false)))
-
-(defn randomize []
-  (make-grid board-size random-fill))
 
 (defn new-key [key size]
   (cond 
@@ -36,14 +32,6 @@
               offset))
           offset)))))
 
-(defn will-live? [alive? neighbours]
-  "tells whether a cell will live or die based on its
-   living neighbours"
-  (if alive?
-    (<= 2 neighbours 3)
-    (= 3 neighbours)))
-
-
 (defn next-gen [board]
   "calculates board's next generation"
   (let [mapv-indexed (comp vec map-indexed)]
@@ -54,8 +42,4 @@
             (will-live? cell (count-neighbours board [y x])))
           row))
       board)))
-
-(def default-db
-  {:board (randomize)})
-
 
