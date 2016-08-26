@@ -7,30 +7,32 @@
       #(mapv fill-with xs)
       xs)))
 
-
-
 (defn new-key [key size]
   (cond 
     (= key -1) (dec size)
     (= key size) 0
     :else key))
 
+(defn new-keys [size keys]
+  (map #(new-key % size) keys))
+
+(defn combine-position [[y x]]
+  (let [offset [-1 0 1]]
+    (->> offset
+         (mapcat
+           (fn [y']
+             (map
+               (fn [x'] [(+ y y') (+ x x')]) 
+               offset)))
+         (remove #(= % [y x])))))
+
 (defn count-neighbours [board [y x]]
   "gets the amount of neighbour cells alive for a given cell"
-  (let [offset [-1 0 1]
-        size (count board)]
-    (count
-      (filter true?
-        (mapcat
-          (fn [y']
-            (map
-              (fn [x']
-                (when-not
-                  (every? zero? [y' x'])
-                  (get-in board
-                    (map #(new-key % size) [(+ y y') (+ x x')]))))
-              offset))
-          offset)))))
+  (let [s (count board)]
+    (->> (combine-position [y x])
+         (map #(get-in board (new-keys s %)))
+         (filter true?)
+         (count))))
 
 (defn next-gen [board]
   "calculates board's next generation"
