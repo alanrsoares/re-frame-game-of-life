@@ -3,7 +3,7 @@
               [re-frame.core :refer [subscribe
                                      dispatch]]))
 
-(defonce time-updater 
+(defonce tick 
   (js/setInterval
     #(dispatch [:next-gen]) 100))
 
