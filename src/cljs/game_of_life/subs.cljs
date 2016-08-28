@@ -6,3 +6,8 @@
  :board
  (fn [db _]
    (:board db)))
+
+(reg-sub
+  :profiler
+  (fn [db _]
+    (:profiler db)))
