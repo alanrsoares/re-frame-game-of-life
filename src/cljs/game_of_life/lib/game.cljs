@@ -5,5 +5,5 @@
    living neighbours"
   (if alive?
     (<= 2 neighbours 3)
-    (= 3 neighbours)))
+    (== 3 neighbours)))
 

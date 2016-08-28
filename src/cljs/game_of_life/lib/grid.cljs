@@ -22,9 +22,11 @@
          (mapcat
            (fn [y']
              (map
-               (fn [x'] [(+ y y') (+ x x')]) 
+               (fn [x']
+                 [(+ y y')
+                  (+ x x')])
                offset)))
-         (remove #(= % [y x])))))
+         (remove #{[y x]}))))
 
 (defn count-neighbours [board [y x]]
   "gets the amount of neighbour cells alive for a given cell"

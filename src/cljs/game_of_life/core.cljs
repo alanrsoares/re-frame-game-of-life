@@ -1,11 +1,11 @@
 (ns game-of-life.core
-    (:require [reagent.core :as reagent]
-              [re-frame.core :as re-frame]
-              [devtools.core :as devtools]
-              [game-of-life.events]
-              [game-of-life.subs]
-              [game-of-life.containers.main :refer [main-container]]
-              [game-of-life.config :as config]))
+  (:require [reagent.core :as reagent]
+            [re-frame.core :as re-frame]
+            [devtools.core :as devtools]
+            [game-of-life.events]
+            [game-of-life.subs]
+            [game-of-life.containers.main :refer [main-container]]
+            [game-of-life.config :as config]))
 
 
 (defn dev-setup []

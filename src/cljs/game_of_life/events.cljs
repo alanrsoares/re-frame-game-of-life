@@ -13,14 +13,27 @@
 
 (reg-event-db
   :randomize
+  (path [:board])
   (fn []
     (randomize)))
 
 (reg-event-db
-  :reset-board
-  (path :board)
+  :reset
+  (path [:board])
   (fn []
     blank-board))
+
+(reg-event-db
+  :tick
+  (path [:profiler])
+  (fn [profiler _]
+    (update profiler :ticks inc)))
+
+(reg-event-db
+  :toggle-cell
+  (path [:board])
+  (fn [board [_ [y x]]]
+    (update-in board [y x] not)))
 
 (reg-event-db
   :next-gen
