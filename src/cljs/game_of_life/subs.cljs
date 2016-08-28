@@ -1,13 +1,11 @@
 (ns game-of-life.subs
-    (:require-macros [reagent.ratom :refer [reaction]])
-    (:require [re-frame.core :refer [reg-sub]]))
+  (:require-macros [reagent.ratom :refer [reaction]])
+  (:require [re-frame.core :refer [reg-sub]]))
 
 (reg-sub
  :board
- (fn [db _]
-   (:board db)))
+ #(:board %))
 
 (reg-sub
   :profiler
-  (fn [db _]
-    (:profiler db)))
+  #(:profiler %))
