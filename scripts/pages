@@ -4,5 +4,8 @@ rm -f index.html
 rm -rf ./css
 rm -rf ./js
 
+git merge master -m "merge master"
 ./scripts/build
 cp -r resources/public/* .
+git add . && git commit -m "fresh build"
+git push
