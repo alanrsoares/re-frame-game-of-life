@@ -1,4 +1,4 @@
-(ns game-of-life.db
+(ns game-of-life.store
   (:require [game-of-life.lib.grid :refer [make-grid]]))
 
 

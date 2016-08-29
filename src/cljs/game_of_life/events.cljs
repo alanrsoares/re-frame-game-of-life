@@ -1,9 +1,9 @@
 (ns game-of-life.events
   (:require [re-frame.core   :refer [reg-event-db path trim-v after debug]]
             [game-of-life.lib.grid :refer [next-gen]]
-            [game-of-life.db :refer [default-db
-                                     blank-board
-                                     randomize]]))
+            [game-of-life.store :refer [default-db
+                                        blank-board
+                                        randomize]]))
 
 
 (reg-event-db
