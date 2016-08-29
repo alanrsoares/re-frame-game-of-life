@@ -1,11 +1,19 @@
 #!/bin/bash
 
-rm -f index.html
-rm -rf ./css
-rm -rf ./js
+# clean current files
+rm -rf ./css ./js ./index.html
 
+# bring in latest changes from master
 git merge master -m "merge master"
+
+# build it
 ./scripts/build
+
+# copy build artifacts
 cp -r resources/public/* .
+
+# save changes
 git add . && git commit -m "fresh build"
+
+# publish
 git push
