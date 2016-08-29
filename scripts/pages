@@ -1,3 +1,0 @@
-#!/bin/bash
-./scripts/clean 
-cp -r resources/public/* .
