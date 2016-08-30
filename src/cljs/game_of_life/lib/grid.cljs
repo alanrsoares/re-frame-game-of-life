@@ -7,14 +7,14 @@
       #(mapv fill-with xs)
       xs)))
 
-(defn new-key [key size]
+(defn new-key [size key]
   (cond 
     (= key -1) (dec size)
     (= key size) 0
     :else key))
 
 (defn new-keys [size keys]
-  (map #(new-key % size) keys))
+  (map (partial new-key size) keys))
 
 (defn combine-position [[y x]]
   (let [offset [-1 0 1]]

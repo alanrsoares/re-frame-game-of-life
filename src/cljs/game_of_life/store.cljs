@@ -4,7 +4,7 @@
 
 (def board-size 20)
 
-(defn random-fill [] 
+(defn random-fill []
   (< 0.8 (rand)))
 
 (def blank-board
