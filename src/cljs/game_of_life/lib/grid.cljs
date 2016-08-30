@@ -7,16 +7,16 @@
       #(mapv fill-with xs)
       xs)))
 
-(defn new-key [key size]
+(defn new-key [size key]
   (cond 
     (= key -1) (dec size)
     (= key size) 0
     :else key))
 
 (defn new-keys [size keys]
-  (map #(new-key % size) keys))
+  (map (partial new-key size) keys))
 
-(defn combine-position [[y x]]
+(defn combine-positions [[y x]]
   (let [offset [-1 0 1]]
     (->> offset
          (mapcat
@@ -31,7 +31,7 @@
 (defn count-neighbours [board [y x]]
   "gets the amount of neighbour cells alive for a given cell"
   (let [s (count board)]
-    (->> (combine-position [y x])
+    (->> (combine-positions [y x])
          (map #(get-in board (new-keys s %)))
          (filter true?)
          (count))))
