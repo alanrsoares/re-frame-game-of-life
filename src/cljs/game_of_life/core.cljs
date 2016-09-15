@@ -7,7 +7,6 @@
             [game-of-life.containers.main :refer [main-container]]
             [game-of-life.config :as config]))
 
-
 (defn dev-setup []
   (when config/debug?
     (println "dev mode")
